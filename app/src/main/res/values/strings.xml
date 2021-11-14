@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MExpense</string>
+    <string name="sign_out">Sign out</string>
+    <string name="demo_name">Markus Wolf</string>
+    <string name="work_role">Front-end Engineer</string>
+    <string name="add_new_trip">Add New Trip</string>
+    <string name="load">Loading…</string>
+    <string name="add_new_tripish">Add New <font fgcolor="#14C18F">Trip*!</font></string>
+    <string name="all_field_req">All <font fgcolor="#14C18F">*</font> fields below are required</string>
+
+    <string name="name_of_trip">* Name of trip</string>
+    <string name="destination">* Destination</string>
+    <string name="risk_assess">* Requires risk assessment</string>
+    <string name="date_of_trip">* Date of Trip</string>
+    <string name="description">Description</string>
+    <string name="mode_of_transport">Mode of transport</string>
+    <string name="expense_amt">* Amount of the expense</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
