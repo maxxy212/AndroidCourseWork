@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="trip" type="com.greenwich.mexpense.model.Trip" />
+    </data>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ShowActivity">
+
+    <include layout="@layout/header"/>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/margin_top_6"
+                android:paddingStart="@dimen/padding_16"
+                android:paddingEnd="@dimen/padding_16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/name_of_t + ` ` + trip.name}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/start_p + ` ` + trip.starting_point}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/dest + ` ` + trip.destination}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/date_of_t + ` ` + trip.date_of_trip}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/req_risk_ass + ` ` + trip.req_risk}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/descr + ` ` + trip.description}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/mode_of_t + ` ` + trip.mode_of_transport}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:id="@+id/expense_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/type_expense"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/amout_expense + ` ` + trip.amt_expense}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/time_expense + ` ` + trip.time_of_expense}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/additional_comm + ` ` + trip.comment}"
+                    android:layout_marginBottom="@dimen/margin_37"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

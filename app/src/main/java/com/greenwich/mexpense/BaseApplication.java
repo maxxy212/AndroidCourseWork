@@ -23,11 +23,10 @@ public class BaseApplication extends MultiDexApplication {
         Realm.init(this);
         RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .schemaVersion(1)
+                .allowWritesOnUiThread(true)
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(configuration);
-
         AndroidNetworking.initialize(this);
-        //304 for not created
     }
 }

@@ -1,5 +1,8 @@
 package com.greenwich.mexpense.model;
 
+import java.io.Serializable;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -19,4 +22,8 @@ public class Trip extends RealmObject {
     public String description;
     public String mode_of_transport;
     public double amt_expense;
+    public String starting_point;
+    public RealmList<String> expense;
+    public String time_of_expense;
+    public String comment;
 }

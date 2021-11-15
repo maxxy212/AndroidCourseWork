@@ -49,8 +49,9 @@ dependencies {
 
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'io.realm:android-adapters:3.0.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
     // For UI
-    implementation 'com.varunjohn1990.libraries:iosdialogs4android:1.0.2'
+    implementation 'com.gdacciaro:iosdialog:1.0.3'
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     implementation 'com.android.support:support-annotations:28.0.0'
     annotationProcessor 'com.android.support:support-annotations:28.0.0'

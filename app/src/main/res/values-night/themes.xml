@@ -18,12 +18,12 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
 
         <item name="colorControlNormal">@color/dark_blue</item>
-        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/color_accent_darker</item>
         <item name="colorControlHighlight">@color/color_light_text</item>
         <item name="android:textColorHint">@color/color_light_text</item>
         <item name="android:textColor">@color/color_text</item>
 
-        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="colorButtonNormal">@color/color_primary</item>
         <item name="android:actionMenuTextAppearance">@style/MyMenuTextAppearance</item>
         <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
 

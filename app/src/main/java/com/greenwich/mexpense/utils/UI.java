@@ -5,9 +5,11 @@ import android.app.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.gdacciaro.iOSDialog.iOSDialog;
+import com.gdacciaro.iOSDialog.iOSDialogBuilder;
+import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.greenwich.mexpense.R;
 import com.kaopiz.kprogresshud.KProgressHUD;
-import com.varunjohn1990.iosdialogs4android.IOSDialog;
 
 import javax.inject.Inject;
 
@@ -33,14 +35,13 @@ public class UI {
 
     public void showOkayDialog(String title, String content, boolean doOnBackPress){
         if (!activity.isFinishing())
-            new IOSDialog.Builder(activity)
-                    .title(title)
-                    .message(content)
-                    .positiveButtonText(android.R.string.ok)
-                    .enableAnimation(true)
-                    .cancelable(false)
-                    .positiveClickListener(iosDialog -> {
-                        iosDialog.dismiss();
+            new iOSDialogBuilder(activity)
+                    .setTitle(title)
+                    .setSubtitle(content)
+                    .setBoldPositiveLabel(false)
+                    .setCancelable(false)
+                    .setPositiveListener(activity.getString(R.string.ok), dialog -> {
+                        dialog.dismiss();
                         if (doOnBackPress) activity.onBackPressed();
                     })
                     .build()
@@ -50,31 +51,32 @@ public class UI {
 
     public void showErrorDialog(String title, String message){
         if (!activity.isFinishing())
-            new IOSDialog.Builder(activity)
-                    .title(title)
-                    .message(message)
-                    .enableAnimation(true)
-                    .cancelable(true)
+            new iOSDialogBuilder(activity)
+                    .setTitle(title)
+                    .setSubtitle(message)
+                    .setBoldPositiveLabel(false)
+                    .setCancelable(false)
+                    .setPositiveListener(activity.getString(R.string.ok), iOSDialog::dismiss)
                     .build()
                     .show();
     }
 
     public void showInfoDialog(String title, String message){
         if (!activity.isFinishing())
-            new IOSDialog.Builder(activity)
-                    .title(title)
-                    .message(message)
+            new iOSDialogBuilder(activity)
+                    .setTitle(title)
+                    .setSubtitle(message)
+                    .setPositiveListener(activity.getString(R.string.ok), iOSDialog::dismiss)
                     .build()
                     .show();
     }
 
     public void showInfoDialog(String title, String message, String btn_message){
         if (!activity.isFinishing())
-            new IOSDialog.Builder(activity)
-                    .title(title)
-                    .message(message)
-                    .enableAnimation(false)
-                    .positiveButtonText(btn_message)
+            new iOSDialogBuilder(activity)
+                    .setTitle(title)
+                    .setSubtitle(message)
+                    .setPositiveListener(btn_message, iOSDialog::dismiss)
                     .build()
                     .show();
     }

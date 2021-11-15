@@ -25,8 +25,8 @@ import java.util.List;
  */
 public class TransportAdapter extends BaseAdapter {
 
-    private Context context;
-    private List<Transport> transportList;
+    private final Context context;
+    private final List<Transport> transportList;
 
     public TransportAdapter(Context context, List<Transport> transportList) {
         this.context = context;

@@ -90,7 +90,7 @@
                         app:icon="@drawable/ic_add"
                         android:layout_marginTop="@dimen/margin_10"
                         app:iconGravity="textStart"
-                        android:theme="@style/ButtonFillAppearanceRed"
+                        android:theme="@style/ButtonFillAppearanceYellow"
                         app:cornerRadius="@dimen/margin_40"
                         android:layout_below="@+id/staff_id"/>
 
@@ -100,12 +100,22 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/no_new_trip"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/trips"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="fill_vertical"
         android:orientation="vertical"
+        android:background="@color/color_background"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

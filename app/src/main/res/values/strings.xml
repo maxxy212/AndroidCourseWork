@@ -8,6 +8,11 @@
     <string name="add_new_tripish">Add New <font fgcolor="#14C18F">Trip*!</font></string>
     <string name="all_field_req">All <font fgcolor="#14C18F">*</font> fields below are required</string>
     <string name="todo">""</string>
+    <string name="error">Error</string>
+    <string name="ok">OK</string>
+    <string name="success">Success</string>
+    <string name="no_new_trip">No new Trip</string>
+    <string name="list_of_trip">List of my <font fgcolor="#14C18F">Trips!</font></string>
 
     <string name="name_of_trip">* Name of trip</string>
     <string name="destination">* Destination</string>
@@ -19,4 +24,30 @@
     <string name="expense_amt">* Amount of the expense</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="add_trip">Add Trip</string>
+    <string name="next">Next</string>
+
+    <string name="name_req">Valid Name of trip is required</string>
+    <string name="start_req">Valid Starting point is required</string>
+    <string name="destination_req">Destination is required</string>
+    <string name="date_trip_req">Date of Trip is required</string>
+    <string name="risk_ass_req">Requires risk assessment is required</string>
+    <string name="trip_successful">Trip Saved successfully</string>
+    <string name="delete">Delete</string>
+    <string name="show">Show</string>
+    <string name="edit">Edit</string>
+    <string name="trip">Trip</string>
+    <string name="del_all">Delete all</string>
+
+    <string name="name_of_t">Name of trip: </string>
+    <string name="start_p">Starting point: </string>
+    <string name="dest">Destination: </string>
+    <string name="date_of_t">Date of Trip: </string>
+    <string name="req_risk_ass">Requires risk assessment: </string>
+    <string name="descr">Description: </string>
+    <string name="mode_of_t">Mode of Transport: </string>
+    <string name="type_expense">Type of Expense:</string>
+    <string name="amout_expense">Amount of the Expense</string>
+    <string name="time_expense">Time of the Expense</string>
+    <string name="additional_comm">Additional comments</string>
 </resources>
