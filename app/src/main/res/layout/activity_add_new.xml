@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.AddNewActivity">
 
-    <include layout="@layout/header" />
+    <include layout="@layout/header"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:scrollbars="none">
 
             <LinearLayout
@@ -44,6 +44,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/name_of_trip"
+                    style="@style/EditTextDesign"
+                    android:inputType="textCapWords"
+                    android:importantForAutofill="no"
+                    android:text=""/>
+
+                <EditText
+                    android:id="@+id/start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/start_point"
                     style="@style/EditTextDesign"
                     android:inputType="textCapWords"
                     android:importantForAutofill="no"
@@ -122,15 +132,18 @@
                     android:layout_marginTop="@dimen/margin_37"
                     android:hint="@string/description"/>
 
-                <EditText
-                    android:id="@+id/amount"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/expense_amt"
-                    style="@style/EditTextDesign"
-                    android:inputType="numberDecimal"
-                    android:importantForAutofill="no"
-                    android:text=""/>
+                    android:layout_marginTop="@dimen/margin_37"
+                    android:text="@string/mode_of_transport"/>
+
+                <Spinner
+                    android:id="@+id/transport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_marginBottom="150dp"/>
 
             </LinearLayout>
 

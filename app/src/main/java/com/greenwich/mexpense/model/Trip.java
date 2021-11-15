@@ -1,6 +1,7 @@
 package com.greenwich.mexpense.model;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Package com.greenwich.mexpense.model in
@@ -10,6 +11,7 @@ import io.realm.RealmObject;
  * Created by Maxwell on 14/11/2021
  */
 public class Trip extends RealmObject {
+    @PrimaryKey public int id;
     public String name;
     public String destination;
     public String date_of_trip;
