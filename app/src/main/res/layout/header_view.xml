@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <RelativeLayout
     android:layout_width="match_parent"
@@ -23,7 +24,19 @@
         android:theme="@style/ButtonFillAppearanceRed"
         app:cornerRadius="@dimen/margin_40"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_10"/>
+        android:layout_marginEnd="@dimen/margin_10"
+        tools:ignore="RelativeOverlap" />
+
+    <SearchView
+        android:id="@+id/simpleSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/delete"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Here"
+        android:layout_marginTop="@dimen/margin_10"
+        android:padding="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_10"/>
 
 </RelativeLayout>
 </layout>

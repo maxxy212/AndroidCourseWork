@@ -13,6 +13,9 @@
     <string name="success">Success</string>
     <string name="no_new_trip">No new Trip</string>
     <string name="list_of_trip">List of my <font fgcolor="#14C18F">Trips!</font></string>
+    <string name="conn_error">Error Connecting, Please Check Your Internet Connection</string>
+    <string name="parse_error">Oops! Could Not Process Your Request, Please Try Again</string>
+    <string name="req_error">Your Request Has Been Canceled..</string>
 
     <string name="name_of_trip">* Name of trip</string>
     <string name="destination">* Destination</string>

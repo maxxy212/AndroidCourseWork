@@ -14,9 +14,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12310030395136778" />
         <entry key="app/src/main/res/layout/activity_show.xml" value="0.20018115942028986" />
         <entry key="app/src/main/res/layout/header.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/header_view.xml" value="0.14564336372847012" />
+        <entry key="app/src/main/res/layout/header_view.xml" value="0.18" />
         <entry key="app/src/main/res/layout/spinner_drop_down_list_item.xml" value="0.14564336372847012" />
         <entry key="app/src/main/res/layout/trip_card.xml" value="0.18" />
+        <entry key="app/src/main/res/menu/show_menu.xml" value="0.15364583333333334" />
       </map>
     </option>
   </component>

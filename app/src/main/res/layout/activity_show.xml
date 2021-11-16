@@ -12,23 +12,25 @@
 
     <include layout="@layout/header"/>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:scrollbars="none">
 
-        <ScrollView
+        <FrameLayout
+            android:id="@+id/view_wrapper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:paddingTop="@dimen/margin_top_6"
                 android:paddingStart="@dimen/padding_16"
-                android:paddingEnd="@dimen/padding_16">
+                android:paddingEnd="@dimen/padding_16"
+                tools:ignore="UselessParent">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -99,9 +101,9 @@
 
             </LinearLayout>
 
-        </ScrollView>
+        </FrameLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

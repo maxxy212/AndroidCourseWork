@@ -1,9 +1,11 @@
 package com.greenwich.mexpense.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,6 +29,7 @@ import java.util.Locale;
 import io.realm.Case;
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
+import io.realm.RealmQuery;
 import io.realm.RealmRecyclerViewAdapter;
 
 /**
@@ -86,8 +89,9 @@ public class TripAdapter extends RealmRecyclerViewAdapter<Trip, RecyclerView.Vie
         return TYPE_ITEM;
     }
 
-    class HeaderItemHolder extends RecyclerView.ViewHolder{
+    class HeaderItemHolder extends RecyclerView.ViewHolder implements SearchView.OnQueryTextListener{
         ViewDataBinding dataBinding;
+        RealmQuery<Trip> query = realm.where(Trip.class);
 
         public HeaderItemHolder(ViewDataBinding itemView) {
             super(itemView.getRoot());
@@ -96,6 +100,26 @@ public class TripAdapter extends RealmRecyclerViewAdapter<Trip, RecyclerView.Vie
 
         void setData(){
             View view = dataBinding.getRoot();
+            SearchView searchView = view.findViewById(R.id.simpleSearchView);
+            searchView.setOnQueryTextListener(this);
+        }
+
+        @Override
+        public boolean onQueryTextSubmit(String s) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String s) {
+            if (s.isEmpty()) {
+                updateData(realm.where(Trip.class).findAllAsync());
+            }else {
+                query.contains("name", s, Case.INSENSITIVE)
+                .or().contains("destination", s, Case.INSENSITIVE)
+                .or().contains("date_of_trip", s, Case.INSENSITIVE);
+                updateData(query.findAllAsync());
+            }
+            return false;
         }
     }
 
@@ -116,7 +140,6 @@ public class TripAdapter extends RealmRecyclerViewAdapter<Trip, RecyclerView.Vie
             del.setOnClickListener(view1 -> realm.executeTransaction(realm1 -> trip.deleteFromRealm()));
             show.setOnClickListener(view1 -> ShowActivity.start(view.getContext(), trip.id));
             edit.setOnClickListener(view1 -> EditTripActivity.start(view.getContext(), trip.id));
-
         }
     }
 
