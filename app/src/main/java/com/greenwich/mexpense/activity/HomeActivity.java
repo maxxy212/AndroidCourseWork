@@ -47,8 +47,10 @@ public class HomeActivity extends AppCompatActivity {
         data = realm.where(Trip.class).findAll();
         if (data.isEmpty()) {
             binding.emptyText.setVisibility(View.VISIBLE);
+            binding.trips.setVisibility(View.GONE);
         }else {
             binding.emptyText.setVisibility(View.GONE);
+            binding.trips.setVisibility(View.VISIBLE);
         }
 
         setTripAdapter();

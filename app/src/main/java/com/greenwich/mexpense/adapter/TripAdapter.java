@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import com.greenwich.mexpense.BR;
 import com.greenwich.mexpense.R;
+import com.greenwich.mexpense.activity.EditTripActivity;
 import com.greenwich.mexpense.activity.ShowActivity;
 import com.greenwich.mexpense.model.Trip;
 
@@ -111,8 +112,10 @@ public class TripAdapter extends RealmRecyclerViewAdapter<Trip, RecyclerView.Vie
             View view = dataBinding.getRoot();
             MaterialButton del = view.findViewById(R.id.delete);
             MaterialButton show = view.findViewById(R.id.show);
+            MaterialButton edit = view.findViewById(R.id.edit);
             del.setOnClickListener(view1 -> realm.executeTransaction(realm1 -> trip.deleteFromRealm()));
-            show.setOnClickListener(view1 -> realm.executeTransaction(realm1 -> ShowActivity.start(view.getContext(), trip.id)));
+            show.setOnClickListener(view1 -> ShowActivity.start(view.getContext(), trip.id));
+            edit.setOnClickListener(view1 -> EditTripActivity.start(view.getContext(), trip.id));
 
         }
     }

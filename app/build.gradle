@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.greenwich.mexpense"
-        minSdk 21
+        minSdk 23
         targetSdk 30
         versionCode 1
         versionName "1.0"
@@ -50,6 +50,7 @@ dependencies {
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'io.realm:android-adapters:3.0.0'
     implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.github.zeeshan5422:Material-MultiSelection-Spinner:1.0'
     // For UI
     implementation 'com.gdacciaro:iosdialog:1.0.3'
     implementation 'com.kaopiz:kprogresshud:1.2.0'

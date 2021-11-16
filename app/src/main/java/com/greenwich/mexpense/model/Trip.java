@@ -21,7 +21,7 @@ public class Trip extends RealmObject {
     public String req_risk;
     public String description;
     public String mode_of_transport;
-    public double amt_expense;
+    public String amt_expense;
     public String starting_point;
     public RealmList<String> expense;
     public String time_of_expense;

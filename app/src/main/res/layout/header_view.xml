@@ -22,7 +22,8 @@
         app:iconGravity="textStart"
         android:theme="@style/ButtonFillAppearanceRed"
         app:cornerRadius="@dimen/margin_40"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_10"/>
 
 </RelativeLayout>
 </layout>

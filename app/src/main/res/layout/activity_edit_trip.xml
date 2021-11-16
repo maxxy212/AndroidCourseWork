@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="trip" type="com.greenwich.mexpense.model.Trip" />
+    </data>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.EditTripActivity">
+
+    <include layout="@layout/header"/>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/margin_top_6"
+                android:paddingStart="@dimen/padding_16"
+                android:paddingEnd="@dimen/padding_16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_field_req"
+                    android:layout_marginTop="@dimen/margin_10"/>
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name_of_trip"
+                    style="@style/EditTextDesign"
+                    android:inputType="textCapWords"
+                    android:importantForAutofill="no"
+                    android:text="@{trip.name}"/>
+
+                <EditText
+                    android:id="@+id/start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/start_point"
+                    style="@style/EditTextDesign"
+                    android:inputType="textCapWords"
+                    android:importantForAutofill="no"
+                    android:text="@{trip.starting_point}"/>
+
+                <EditText
+                    android:id="@+id/destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/destination"
+                    style="@style/EditTextDesign"
+                    android:inputType="textCapWords"
+                    android:importantForAutofill="no"
+                    android:text="@{trip.destination}"/>
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/date_of_trip"
+                    style="@style/TextViewDesign"
+                    android:background="@drawable/bottom_line"
+                    android:text="@{trip.date_of_trip}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginTop="@dimen/margin_37">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/risk_assess"
+                        android:layout_marginBottom="10dp"
+                        android:ems="10"
+                        android:layout_weight="1"/>
+
+                    <RadioGroup
+                        android:id="@+id/req_risk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/signYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yes" />
+
+                        <RadioButton
+                            android:id="@+id/signNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/no"
+                            android:layout_marginStart="30dp"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="2000"
+                    android:maxLines="20"
+                    android:background="@drawable/edit_text_style"
+                    android:lines="8"
+                    android:gravity="start|top"
+                    android:scrollbars="vertical"
+                    android:padding="@dimen/padding_5"
+                    tools:ignore="Autofill,LabelFor"
+                    android:layout_marginTop="@dimen/margin_37"
+                    android:hint="@string/description"
+                    android:text="@{trip.description}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_37"
+                    android:text="@string/mode_of_transport"/>
+
+                <Spinner
+                    android:id="@+id/transport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.Spinner.Underlined" />
+
+                <EditText
+                    android:id="@+id/amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/expense_amt"
+                    style="@style/EditTextDesign"
+                    android:inputType="numberDecimal"
+                    android:importantForAutofill="no"
+                    android:text="@{trip.amt_expense}"/>
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/expense_time"
+                    style="@style/TextViewDesign"
+                    android:background="@drawable/bottom_line"
+                    android:text="@{trip.time_of_expense}"/>
+
+                <EditText
+                    android:id="@+id/comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="2000"
+                    android:maxLines="20"
+                    android:background="@drawable/edit_text_style"
+                    android:lines="8"
+                    android:gravity="start|top"
+                    android:scrollbars="vertical"
+                    android:padding="@dimen/padding_5"
+                    tools:ignore="Autofill,LabelFor"
+                    android:layout_marginTop="@dimen/margin_37"
+                    android:hint="@string/comment"
+                    android:text="@{trip.comment}"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/textInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/expense_type"
+                    android:layout_marginTop="@dimen/margin_37"
+                    android:layout_marginBottom="50dp">
+
+                    <com.zeeshan.material.multiselectionspinner.MultiSelectionSpinner
+                        android:id="@+id/multi_Selection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        android:importantForAutofill="no"
+                        android:maxLines="1"
+                        app:showSearch="true"
+                        app:sort="false"
+                        android:focusable="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/update"
+                    android:theme="@style/ButtonFillAppearanceGreen"
+                    app:cornerRadius="@dimen/margin_40"
+                    android:layout_marginBottom="100dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

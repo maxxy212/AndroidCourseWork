@@ -1,6 +1,7 @@
 package com.greenwich.mexpense.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
 import android.annotation.SuppressLint;
@@ -28,6 +29,10 @@ public class ShowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_show);
         realm = Realm.getDefaultInstance();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
         int id = getIntent().getIntExtra(SHOW, 0);
         trip = realm.where(Trip.class).equalTo("id", id).findFirst();
         for (int i = 0; i < (trip != null ? trip.expense.size() : 0); i++) {

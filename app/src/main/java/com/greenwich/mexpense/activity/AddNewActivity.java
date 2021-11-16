@@ -57,7 +57,7 @@ public class AddNewActivity extends AppCompatActivity implements View.OnFocusCha
         toolbar.setNavigationIcon(R.drawable.ic_back);
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
         binding.reqRisk.setOnCheckedChangeListener((radioGroup, i) -> {
-            RadioButton rbut = (RadioButton)findViewById(i);
+            RadioButton rbut = findViewById(i);
             if (rbut.getText().toString().equalsIgnoreCase("Yes"))
             { riskReq = getString(R.string.yes); }
             else if (rbut.getText().toString().equalsIgnoreCase("No"))

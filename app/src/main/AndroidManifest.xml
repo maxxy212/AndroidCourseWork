@@ -13,9 +13,12 @@
         android:theme="@style/Theme.MExpense"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".activity.EditTripActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ShowActivity"
             android:exported="false"
-            android:label="@string/trip"/>
+            android:label="@string/trip" />
         <activity
             android:name=".activity.DetailActivity"
             android:exported="false"
