@@ -44,6 +44,7 @@
     <string name="edit">Edit</string>
     <string name="trip">Trip</string>
     <string name="del_all">Delete all</string>
+    <string name="upload_trip">Upload trips</string>
     <string name="update">Update</string>
     <string name="trip_updated">Trip Updated Successfully</string>
 

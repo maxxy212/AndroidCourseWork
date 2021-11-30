@@ -28,16 +28,33 @@ import com.greenwich.mexpense.adapter.TripAdapter;
 import com.greenwich.mexpense.databinding.ActivityHomeBinding;
 import com.greenwich.mexpense.model.Media;
 import com.greenwich.mexpense.model.Trip;
+import com.greenwich.mexpense.network.ApiCallHandler;
+import com.greenwich.mexpense.utils.UI;
+import com.greenwich.mexpense.viewmodel.TripsViewModel;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
+import io.realm.RealmList;
 
-public class HomeActivity extends AppCompatActivity {
+@AndroidEntryPoint
+public class HomeActivity extends AppCompatActivity implements TripAdapter.UploadAllTripsListener {
+
+    @Inject
+    UI ui;
+    @Inject
+    TripsViewModel tripsViewModel;
 
     private ActivityHomeBinding binding;
     private OrderedRealmCollection<Trip> data;
@@ -45,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
     private String mCurrentPhotoPath;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private Media media;
+    private static final String TAG = HomeActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +102,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setTripAdapter(){
-        TripAdapter adapter = new TripAdapter(data, realm);
+        TripAdapter adapter = new TripAdapter(data, realm, this);
         RecyclerView.LayoutManager _mLayoutManager = new LinearLayoutManager(this);
         binding.trips.setLayoutManager(_mLayoutManager);
         binding.trips.setItemAnimator(new DefaultItemAnimator());
@@ -183,5 +201,70 @@ public class HomeActivity extends AppCompatActivity {
                 media.photo_path = mCurrentPhotoPath;
             }
         });
+    }
+
+    private void uploadTrips() {
+        ui.showNonCloseableProgress(null);
+        JSONObject object = new JSONObject();
+        JSONObject nestedobject = new JSONObject();
+        try {
+            nestedobject.put("userId", "wm123");
+            nestedobject.put("detailList", getDetaiList());
+            object.put("jsonpayload", nestedobject);
+        }catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d(TAG, "uploadTrips: " + object.toString());
+        tripsViewModel.uploadTrips(object, new ApiCallHandler() {
+            @Override
+            protected void done() {
+                ui.dismissProgress();
+            }
+
+            @Override
+            public void success(Object data) {
+                super.success(data);
+                ui.showInfoDialog("Success", data.toString());
+            }
+
+            @Override
+            public void failed(String title, String reason) {
+                super.failed(title, reason);
+                ui.showErrorDialog(title, reason);
+            }
+        });
+    }
+
+    private JSONArray getDetaiList() {
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < data.size(); i++) {
+            JSONObject object = new JSONObject();
+            JSONArray expenseArray = new JSONArray();
+            try {
+                object.put("name", data.get(i).name);
+                object.put("destination", data.get(i).destination);
+                object.put("date_of_trip", data.get(i).date_of_trip);
+                object.put("req_risk", data.get(i).req_risk);
+                object.put("description", data.get(i).description);
+                object.put("mode_of_transport", data.get(i).mode_of_transport);
+                object.put("amt_expense", data.get(i).amt_expense);
+                object.put("starting_point", data.get(i).starting_point);
+                object.put("time_of_expense", data.get(i).time_of_expense);
+                object.put("comment", data.get(i).comment);
+                for (String exp: data.get(i).expense){
+                    expenseArray.put(exp);
+                }
+                object.put("expense", expenseArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            jsonArray.put(object);
+        }
+        return jsonArray;
+    }
+
+    @Override
+    public void onUploadClick() {
+        uploadTrips();
     }
 }

@@ -44,10 +44,12 @@ public class TripAdapter extends RealmRecyclerViewAdapter<Trip, RecyclerView.Vie
     private final int TYPE_HEADER = 0;
     private final int TYPE_ITEM = 1;
     private Realm realm;
+    UploadAllTripsListener uploadAllTripsListener;
 
-    public TripAdapter(@Nullable OrderedRealmCollection<Trip> data, Realm realm) {
+    public TripAdapter(@Nullable OrderedRealmCollection<Trip> data, Realm realm, UploadAllTripsListener uploadAllTripsListener) {
         super(data, true, true);
         this.realm = realm;
+        this.uploadAllTripsListener = uploadAllTripsListener;
     }
 
     @NonNull
@@ -102,6 +104,10 @@ public class TripAdapter extends RealmRecyclerViewAdapter<Trip, RecyclerView.Vie
             View view = dataBinding.getRoot();
             SearchView searchView = view.findViewById(R.id.simpleSearchView);
             searchView.setOnQueryTextListener(this);
+            MaterialButton upload = view.findViewById(R.id.upload);
+            MaterialButton delete = view.findViewById(R.id.delete);
+            upload.setOnClickListener(view1 -> uploadAllTripsListener.onUploadClick());
+            delete.setOnClickListener(view1 -> realm.delete(Trip.class));
         }
 
         @Override
@@ -141,6 +147,10 @@ public class TripAdapter extends RealmRecyclerViewAdapter<Trip, RecyclerView.Vie
             show.setOnClickListener(view1 -> ShowActivity.start(view.getContext(), trip.id));
             edit.setOnClickListener(view1 -> EditTripActivity.start(view.getContext(), trip.id));
         }
+    }
+
+    public interface UploadAllTripsListener{
+        void onUploadClick();
     }
 
 }
